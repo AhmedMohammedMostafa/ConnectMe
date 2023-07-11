@@ -1,112 +1,92 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import Image from 'next/image'
-// Add this style to your css file
 
+const navigation = [
+  { name: 'About', href: '/about' },
+  { name: 'ConnectMe', href: '/search/home' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Contact', href: '/contact-us' },
 
-export default () => {
-
-  const [state, setState] = useState(false)
-  const navRef = useRef()
-
-  // Replace javascript:void(0) path with your path
-  const navigation = [
-      { title: "About", path: "/about" },
-      { title: "Developers", path: "/developers" },
-      { title: "Teams", path: "/teams" },
-      { title: "Pricing", path: "/pricing" },
-      { title: "Our Team", path: "/our-team" },
-      { title: "Contact", path: "/contact-us" },
-      { title: "Login", path: "/auth/login" }
-
-
-
-  ]
-
-  useEffect(() => {
-    const body = document.body;
-  
-    // Disable scrolling
-    const customBodyStyle = ["overflow-hidden", "lg:overflow-visible"];
-    if (state) body.classList.add(...customBodyStyle);
-    // Enable scrolling
-    else body.classList.remove(...customBodyStyle);
-  
-    // Sticky strick
-    const customStyle = ["sticky-nav", "fixed", "border-b"];
-    window.onscroll = () => {
-      if (window.scrollY > 80 && navRef.current) {
-        navRef.current.classList.add(...customStyle);
-      } else if (navRef.current) {
-        navRef.current.classList.remove(...customStyle);
-      }
-    };
-  }, [state]);
-    
-    const Brand = () => (
-        <div className="flex items-center justify-between py-5 md:block">
-            <Link href="/">
-                <Image
-                    src="/logos/logo.png"
-                    width={50}
-                    height={50}
-                    alt="ConnectMe logo"
-                />
+]
+  export default function Example() {
+    return (
+        <div className="px-6 pt-6 lg:px-8  bg-gray-200">
+        <nav className="flex items-center justify-between" aria-label="Global">
+          <div className="flex lg:flex-1">
+            <Link href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">ConnectMe</span>
+              <img className="h-8" src="/logos/logo.png" alt="ConnectMe Logo" />
             </Link>
-            <div className="md:hidden">
-                <button className="menu-btn text-gray-400 hover:text-gray-300"
-                    onClick={() => setState(!state)}
-                >
-                    {
-                        state ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
-                        ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                            </svg>
-                        )
-                    }
-                </button>
+          </div>
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <Link key={item.name} href={item.href} className="text-sm font-normal leading-6 text-white">
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <Link href={'/get-started'}
+        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+       Get Started
+      </Link>
+          </div>
+        </nav>
+        <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+          <Dialog.Panel focus="true" className="fixed inset-0 z-10 overflow-y-auto bg-gray-900 px-6 py-6 lg:hidden">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="-m-1.5 p-1.5">
+                <span className="sr-only">ConnectMe</span>
+                <img className="h-8" src="/logos/logo.png" alt="ConnectMe Logos" />
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-400"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
             </div>
-        </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/25">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg py-2 px-3 text-base font-normal leading-7 text-white hover:bg-gray-400/10"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <Link
+                    href={'/get-started'}
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                    Get Started
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Dialog.Panel>
+        </Dialog>
+      </div>
     )
-
-
-  return (
-    <header>
-    <div className={`md:hidden ${state ? "mx-2 pb-5" : "hidden"}`}>
-        <Brand />
-    </div>
-    <nav className={`pb-5 md:text-sm ${state ? "absolute z-20 top-0 inset-x-0 bg-gray-800 rounded-xl mx-2 mt-2 md:mx-0 md:mt-0 md:relative md:bg-transparent" : ""}`}>
-        <div className="gap-x-14 items-center max-w-screen-xl mx-auto px-4 md:flex md:px-8">
-            <Brand />
-            <div className={`flex-1 items-center mt-8 md:mt-0 md:flex ${state ? 'block' : 'hidden'} `}>
-                <ul className="flex-1 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
-                    {
-                        navigation.map((item, idx) => {
-                            return (
-                                <li key={idx} className="text-gray-300 hover:text-gray-400">
-                                    <Link href={item.path} className="block">
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            )
-                        })
-                    }
-                    <li>
-                        <Link href="/auth/sign-up" className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-full md:inline-flex">
-                            Get started
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                                <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-                            </svg>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-  )
-}
+  }
+  

@@ -1,89 +1,104 @@
-import { useState, useEffect } from "react";
-import { FaUserLarge } from "react-icons/fa6";
-import { useRouter } from "next/router";
+import { useState } from 'react'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
+const navigation = [
+  { name: 'About', href: '/about' },
+  { name: 'ConnectMe', href: '/search/home' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Contact', href: '/contact-us' },
 
-export default () => {
-    const router = useRouter();
+]
 
-const [email,setEmail ] = useState("");
-    const [state, setState] = useState(false)
-let userCount = 20;
-    // Replace javascript:void(0) paths with your paths
+export default function Example() {
 
+  return (
+    <div className="isolate">
+      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+        <svg
+          className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+          viewBox="0 0 1155 678"
+        >
+          <path
+            fill="url(#f4773080-2a16-4ab4-9fd7-579fec69a4f7)"
+            fillOpacity=".2"
+            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+          />
+          <defs>
+            <linearGradient
+              id="f4773080-2a16-4ab4-9fd7-579fec69a4f7"
+              x1="1155.49"
+              x2="-78.208"
+              y1=".177"
+              y2="474.645"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#9089FC" />
+              <stop offset={1} stopColor="#FF80B5" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+     
+      <main>
+        <div className="relative py-24 sm:py-32 lg:pb-40">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              ConnectMe - Connect, Showcase, Share
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+              ConnectMe is a platform for developers to connect, showcase projects, and share knowledge. Build your profile, network with like-minded individuals, and collaborate on innovative projects. Join today and unlock new opportunities in the world of development.
 
-
-const handleGetStartedSumbit = (e) => {
-    e.preventDefault();
-    console.log(formatEmailForURL(email));
-router.push(`/auth/signup?email=${formatEmailForURL(email)}`);
-
-}
-
-
-const handleGetStartedChange = (e) => {
-setEmail(e.target.value);
-
-}
-    useEffect(() => {
-        document.onclick = (e) => {
-            const target = e.target;
-            if (!target.closest(".menu-btn")) setState(false);
-        };
-    }, [])
-
-
-   
-    return (
-        <>
-<div
-      
-      className="bg-gray-900"
-    >            <section className="relative">
-                <div className="relative z-10 max-w-screen-xl mx-auto px-4 py-28 md:px-8">
-                    <div className="space-y-5 max-w-4xl mx-auto text-center">
-                        <h2 className="text-4xl text-white font-extrabold mx-auto md:text-5xl">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">Build, Share, Connect</span>
-                        </h2>
-                        <p className="max-w-2xl mx-auto text-gray-400">
-                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5] font-semibold
-">ConnectMe : </span> Unite, code, collaborate. Join our developer community for collaboration, code sharing, and networking. Break language barriers, showcase skills, and elevate your coding journey. Connect, grow with ConnectMe.
-                        </p>
-                        <form 
-                            onSubmit={handleGetStartedSumbit}
-                            className="justify-center items-center gap-x-3 sm:flex">
-                            <input
-                            onChange={handleGetStartedChange}
-                                type="email"
-                                value={email}
-                                placeholder="Enter your email"
-                                className="w-full px-3 py-2.5 text-gray-400 bg-gray-700 focus:bg-gray-900 duration-150 outline-none rounded-lg shadow sm:max-w-sm sm:w-auto"
-                            />
-                            <button className="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
-                                Get started
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                                    <path fillRule="evenodd" d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z" clipRule="evenodd" />
-                                </svg>
-                            </button>
-                        </form>
-                        <div className="flex justify-center items-center gap-x-4 text-gray-400 text-sm">
-        <div className="flex items-center gap-x-1">
-            <FaUserLarge className="text-gray-100" />
-
-                            <p><span className="text-gray-100">Used</span> by over {userCount} users</p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+              </p>
+              <div className="mt-10 flex items-center justify-center gap-x-6">
+                <Link
+                  href="/get-started"
+                  className="rounded-md bg-indigo-500 px-3.5 py-1.5 text-base font-normal leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                >
+                  Get started
+                </Link>
+                <Link href="/connectme/learn" className="text-base font-normal leading-7 text-white">
+                  Learn more <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+            <img
+              src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+              alt="App screenshot"
+              width={2432}
+              height={1442}
+              className="mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 sm:mt-24"
+            />
+          </div>
+          <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+            <svg
+              className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+              viewBox="0 0 1155 678"
+            >
+              <path
+                fill="url(#ee0717bf-3e43-49df-b1bd-de36422ed3d3)"
+                fillOpacity=".2"
+                d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+              />
+              <defs>
+                <linearGradient
+                  id="ee0717bf-3e43-49df-b1bd-de36422ed3d3"
+                  x1="1155.49"
+                  x2="-78.208"
+                  y1=".177"
+                  y2="474.645"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#9089FC" />
+                  <stop offset={1} stopColor="#FF80B5" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
         </div>
-        </>
-    )
+      </main>
+    </div>
+  )
 }
-
-
-
-function formatEmailForURL(email) {
-    const formattedEmail = encodeURIComponent(email);
-    return formattedEmail;
-  }
