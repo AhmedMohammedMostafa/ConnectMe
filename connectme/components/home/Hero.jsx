@@ -1,20 +1,14 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Navbar from '../layout/Navbar'
 import Link from 'next/link'
 
-const navigation = [
-  { name: 'About', href: '/about' },
-  { name: 'ConnectMe', href: '/search/home' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Contact', href: '/contact-us' },
 
-]
+
 
 export default function Example() {
 
   return (
     <div className="isolate">
+      <Navbar />
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
         <svg
           className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"

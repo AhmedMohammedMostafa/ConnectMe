@@ -5,88 +5,106 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'About', href: '/about' },
-  { name: 'ConnectMe', href: '/search/home' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Contact', href: '/contact-us' },
-
+  { name: 'Home', href: '/home' },
+  { name: 'Tools', href: '/tools/home' },
+  { name: 'Developer', href: '/get-started/developer' },
+  { name: 'Company', href: '/get-started/company' },
+  { name: 'Contact', href: '/contact' },
 ]
-  export default function Example() {
-    return (
-        <div className="px-6 pt-6 lg:px-8  bg-gray-200">
-        <nav className="flex items-center justify-between" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">ConnectMe</span>
-              <img className="h-8" src="/logos/logo.png" alt="ConnectMe Logo" />
+
+export default function Example() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  return (
+    <header>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8" aria-label="Global">
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">ConnectMe</span>
+            <img className="h-8 w-auto" src="/logos/logo.png" alt="" />
+          </Link>
+        </div>
+        <div className="hidden lg:flex lg:gap-x-12">
+          {navigation.map((item) => (
+            <Link key={item.name} href={item.href} className="text-sm font-normal leading-6 text-white hover:text-primary">
+              {item.name}
             </Link>
-          </div>
-          <div className="flex lg:hidden">
+          ))}
+        </div>
+        <div className="flex flex-1 items-center justify-end gap-x-6">
+          <Link href="/auth/login" className="hidden lg:block lg:text-sm lg:font-normal lg:leading-6 lg:text-gray-900">
+            Log in
+          </Link>
+          <Link
+            href="/get-started/developer"
+            className="rounded-md bg-primary px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            Sign up
+          </Link>
+        </div>
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+      </nav>
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <div className="fixed inset-0 z-10" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center gap-x-6">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">ConnectMe</span>
+              <img
+                className="h-8 w-auto"
+                src="/logos/logo.png"
+                alt=""
+              />
+            </Link>
+            <Link
+              href="/get-started/developer"
+              className="ml-auto rounded-md bg-primary px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              Sign up
+            </Link>
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
-              onClick={() => setMobileMenuOpen(true)}
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-normal leading-6 text-white">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href={'/get-started'}
-        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-       Get Started
-      </Link>
-          </div>
-        </nav>
-        <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-          <Dialog.Panel focus="true" className="fixed inset-0 z-10 overflow-y-auto bg-gray-900 px-6 py-6 lg:hidden">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5">
-                <span className="sr-only">ConnectMe</span>
-                <img className="h-8" src="/logos/logo.png" alt="ConnectMe Logos" />
-              </Link>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-400"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/25">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg py-2 px-3 text-base font-normal leading-7 text-white hover:bg-gray-400/10"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-                <div className="py-6">
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
                   <Link
-                    href={'/get-started'}
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                    Get Started
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-7 text-white hover:bg-primary"
+                  >
+                    {item.name}
                   </Link>
-                </div>
+                ))}
+              </div>
+              <div className="py-6">
+                <Link
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-normal leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  Log in
+                </Link>
               </div>
             </div>
-          </Dialog.Panel>
-        </Dialog>
-      </div>
-    )
-  }
-  
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  )
+}

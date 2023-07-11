@@ -1,42 +1,44 @@
 import {
-    ArrowPathIcon,
-    CloudArrowUpIcon,
-    Cog6ToothIcon,
-    FingerPrintIcon,
-    LockClosedIcon,
+    BookOpenIcon,
+    CodeBracketSquareIcon,
+    UserGroupIcon,
+    BriefcaseIcon,
+    WrenchScrewdriverIcon,
     ServerIcon,
+    GlobeAltIcon
   } from '@heroicons/react/20/solid'
+  
   
   const features = [
     {
-      name: 'Push to deploy.',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
-      icon: CloudArrowUpIcon,
+      name: 'Grow your network.',
+      description: 'Grow your network and expand your opportunities by connecting with like-minded professionals on ConnectMe – the platform for meaningful connections.',
+      icon: GlobeAltIcon,
     },
     {
-      name: 'SSL certificates.',
-      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-      icon: LockClosedIcon,
+      name: 'Showcase your projects.',
+      description: 'Showcase your projects and share your creativity with a global audience through ConnectMe - the platform for creative expression.',
+      icon: CodeBracketSquareIcon,
     },
     {
-      name: 'Simple queues.',
-      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
-      icon: ArrowPathIcon,
+      name: 'AI Developer Tools.',
+      description: 'Elevate your coding experience with ConnectMe\'s advanced tools for code translation and error checking. Simplify your development process and enhance code quality.',
+      icon: WrenchScrewdriverIcon,
     },
     {
-      name: 'Advanced security.',
-      description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.',
-      icon: FingerPrintIcon,
+      name: 'Share and gain knowledge.',
+      description: 'Share your expertise and gain valuable knowledge on ConnectMe - the platform for knowledge sharing. Connect with industry professionals, participate in discussions, and stay up-to-date with the latest trends and insights.',
+      icon: BookOpenIcon,
     },
     {
-      name: 'Powerful API.',
-      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-      icon: Cog6ToothIcon,
+      name: 'Find a job.',
+      description: 'Discover exciting job opportunities tailored to your skills and interests on ConnectMe\'s job portal. Explore a wide range of job listings, connect with hiring managers, and take the next step in your career.',
+      icon: BriefcaseIcon,
     },
     {
-      name: 'Database backups.',
-      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. ',
-      icon: ServerIcon,
+      name: 'Join teams.',
+      description: 'Collaborate and join dynamic teams on ConnectMe. Whether you\'re looking for a project partner or want to contribute your skills to a specific team, our platform provides a seamless way to connect and collaborate with like-minded professionals.',
+      icon: UserGroupIcon,
     },
   ]
   
@@ -46,10 +48,9 @@ import {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="text-base font-semibold leading-7 text-indigo-400">Everything you need</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">No server? No problem.</p>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">No project? No problem.</p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-              dolor cupiditate blanditiis.
+            Discover other developers seeking collaborators or team members. ConnectMe - The platform for connecting developers, showcasing projects, and fostering collaboration.
             </p>
           </div>
         </div>

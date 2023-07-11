@@ -15,7 +15,6 @@ import Newsletter from '@/components/main/Newsletter'
 export default function Home() {
   return (
    <>
-   <Navbar />
    <Hero  />
    <TrustedBlock />
    <Features />
