@@ -13,6 +13,7 @@
   ```
 */
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { motion } from 'framer-motion'
 
 export default function Example() {
   return (
@@ -20,7 +21,11 @@ export default function Example() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
+            <motion.div 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             transition={{ delay: 0.4, duration: 0.6 }}
+            className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
               <svg
                 className="absolute inset-0 h-full w-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
                 aria-hidden="true"
@@ -54,13 +59,24 @@ export default function Example() {
                   }}
                 />
               </div>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-white">Get in touch</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            </motion.div>
+            <motion.h2
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             transition={{ delay: 0.6, duration: 0.5 }}
+              className="text-3xl font-bold tracking-tight text-white">Get in touch</motion.h2>
+            <motion.p
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             transition={{ delay: 0.8, duration: 0.6 }}
+              className="mt-6 text-lg leading-8 text-gray-300">
               Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt
               integer elementum id sem. Arcu sed malesuada et magna.
-            </p>
-            <dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
+            </motion.p>
+            <motion.dl  initial={{ opacity: 0 }}
+           whileInView={{ opacity: 1 }}
+           transition={{ delay: 1, duration: 0.6 }}
+           className="mt-10 space-y-4 text-base leading-7 text-gray-300">
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Address</span>
@@ -94,13 +110,17 @@ export default function Example() {
                   </a>
                 </dd>
               </div>
-            </dl>
+            </motion.dl>
           </div>
         </div>
         <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
+              <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ delay: 1.3, duration: 0.6 }}
+               >
                 <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
                   First name
                 </label>
@@ -113,9 +133,12 @@ export default function Example() {
                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
-              <div>
-                <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
+              </motion.div>
+              <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ delay: 1.4, duration: 0.6 }}
+               >                <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-white">
                   Last name
                 </label>
                 <div className="mt-2.5">
@@ -127,8 +150,13 @@ export default function Example() {
                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
-              <div className="sm:col-span-2">
+              </motion.div>
+              <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ delay: 1.5, duration: 0.6 }}
+              
+                 className="sm:col-span-2">
                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-white">
                   Email
                 </label>
@@ -141,8 +169,13 @@ export default function Example() {
                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
-              <div className="sm:col-span-2">
+              </motion.div>
+              <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ delay: 1.6, duration: 0.6 }}
+               
+                className="sm:col-span-2">
                 <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-white">
                   Phone number
                 </label>
@@ -155,8 +188,13 @@ export default function Example() {
                     className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
-              <div className="sm:col-span-2">
+              </motion.div>
+              <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ delay: 1.7, duration: 0.6 }}
+               
+                 className="sm:col-span-2">
                 <label htmlFor="message" className="block text-sm font-semibold leading-6 text-white">
                   Message
                 </label>
@@ -169,16 +207,21 @@ export default function Example() {
                     defaultValue={''}
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
-            <div className="mt-8 flex justify-end">
+            <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 0.6 }}
+            
+               className="mt-8 flex justify-end">
               <button
                 type="submit"
                 className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                 Send message
               </button>
-            </div>
+            </motion.div>
           </div>
         </form>
       </div>

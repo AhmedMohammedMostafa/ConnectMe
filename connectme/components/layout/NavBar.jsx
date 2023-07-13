@@ -4,9 +4,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 const navigation = [
-  { name: 'About', href: '/about' },
-  { name: 'Home', href: '/home' },
-  { name: 'Tools', href: '/tools/home' },
+  { name: 'Hub', href: '/hub' },
+  { name: 'Tools', href: '/tools/hub' },
   { name: 'Developer', href: '/get-started/developer' },
   { name: 'Company', href: '/get-started/company' },
   { name: 'Contact', href: '/contact' },
@@ -19,7 +18,7 @@ export default function Example() {
     <header>
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">ConnectMe</span>
             <img className="h-8 w-auto" src="/logos/logo.png" alt="" />
           </Link>
@@ -32,7 +31,7 @@ export default function Example() {
           ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          <Link href="/auth/login" className="hidden lg:block lg:text-sm lg:font-normal lg:leading-6 lg:text-gray-900">
+          <Link href="/auth/login" className="hidden lg:block lg:text-sm lg:font-normal lg:leading-6 lg:text-white">
             Log in
           </Link>
           <Link

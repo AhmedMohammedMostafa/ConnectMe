@@ -1,5 +1,6 @@
-import Navbar from '../layout/Navbar'
+import NavBar from '../layout/Navbar'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 
 
@@ -39,26 +40,44 @@ export default function Example() {
         <div className="relative py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              <motion.h1 
+             
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               ConnectMe - Connect, Showcase, Share
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
+              </motion.h1>
+              <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+               className="mt-6 text-lg leading-8 text-gray-300">
               ConnectMe is a platform for developers to connect, showcase projects, and share knowledge. Build your profile, network with like-minded individuals, and collaborate on innovative projects. Join today and unlock new opportunities in the world of development.
 
-              </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
+              </motion.p>
+              <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ delay: 0.7, duration: 0.8 }}
+  
+   className="mt-10 flex items-center justify-center gap-x-6">
                 <Link
                   href="/get-started"
-                  className="rounded-md bg-indigo-500 px-3.5 py-1.5 text-base font-normal leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                  className="rounded-md bg-primary px-3.5 py-1.5 text-base font-normal leading-7 text-white shadow-sm hover:bg-info focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Get started
                 </Link>
                 <Link href="/connectme/learn" className="text-base font-normal leading-7 text-white">
                   Learn more <span aria-hidden="true">→</span>
                 </Link>
-              </div>
+              </motion.div>
             </div>
-            <img
+            <motion.img
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             transition={{ delay: 0.8, duration: 1 }}
+
               src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
               alt="App screenshot"
               width={2432}
