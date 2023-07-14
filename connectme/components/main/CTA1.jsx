@@ -47,7 +47,7 @@ export default function Example() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
         <motion.div
   initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1, x: -75 }}
+  whileInView={{ opacity: 1, x: 0 }}
   transition={{ delay: 0.2, duration: 1 }}
   animate={{ x: -200 }}
   className="lg:pr-8 lg:pt-4"
@@ -66,7 +66,7 @@ export default function Example() {
                   </div>
                 ))}
               </dl>
-            </div>
+            </div> 
           </motion.div>
           <motion.img
             src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"

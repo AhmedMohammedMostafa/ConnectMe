@@ -12,7 +12,7 @@
   }
   ```
 */
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import {  EnvelopeIcon } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion'
 
 export default function Example() {
@@ -70,8 +70,7 @@ export default function Example() {
              whileInView={{ opacity: 1 }}
              transition={{ delay: 0.8, duration: 0.6 }}
               className="mt-6 text-lg leading-8 text-gray-300">
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt
-              integer elementum id sem. Arcu sed malesuada et magna.
+              Have a question or want to collaborate? Reach out to us and let's connect. We're here to help you navigate the world of development.
             </motion.p>
             <motion.dl  initial={{ opacity: 0 }}
            whileInView={{ opacity: 1 }}
@@ -79,34 +78,12 @@ export default function Example() {
            className="mt-10 space-y-4 text-base leading-7 text-gray-300">
               <div className="flex gap-x-4">
                 <dt className="flex-none">
-                  <span className="sr-only">Address</span>
-                  <BuildingOffice2Icon className="h-7 w-6 text-gray-400" aria-hidden="true" />
-                </dt>
-                <dd>
-                  545 Mavis Island
-                  <br />
-                  Chicago, IL 99191
-                </dd>
-              </div>
-              <div className="flex gap-x-4">
-                <dt className="flex-none">
-                  <span className="sr-only">Telephone</span>
-                  <PhoneIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
-                </dt>
-                <dd>
-                  <a className="hover:text-white" href="tel:+1 (555) 234-5678">
-                    +1 (555) 234-5678
-                  </a>
-                </dd>
-              </div>
-              <div className="flex gap-x-4">
-                <dt className="flex-none">
                   <span className="sr-only">Email</span>
                   <EnvelopeIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
                 <dd>
                   <a className="hover:text-white" href="mailto:hello@example.com">
-                    hello@example.com
+                    hi@ahmeddvlpr.me
                   </a>
                 </dd>
               </div>

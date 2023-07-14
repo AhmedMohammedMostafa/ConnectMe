@@ -13,7 +13,7 @@ const tiers = [
   {
     name: 'Plus',
     id: 'tier-Plus',
-    href: '/buy/plus',
+    href: '#',
     delay: 1,
     price: { monthly: '$15', annually: '$120' },
     description: 'Showcase your work with 100 projects, 100 posts, and 100 code snippets. Collaborate in 10 teams and unlock AI Developer Tools.',
@@ -33,7 +33,7 @@ const tiers = [
   {
     name: 'Premium',
     id: 'tier-Premium',
-    href: '/buy/premium',
+    href: '#',
     delay: 1.2,
     price: { monthly: '$49', annually: '$350' },
     description: 'Unlimited projects, posts, and code snippets. Connect with 50 teams and enjoy advanced AI Developer Tools and access to a private Discord server.',
@@ -139,7 +139,7 @@ animate={{ y: 0 }}
                 <span className="text-4xl font-bold tracking-tight text-white">Free</span>
               </p>
               <Link
-                href={"/get-started/developer"}
+                href={"#"}
                 aria-describedby={'tier-Starter'}
                 className={classNames(
                  'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white',
